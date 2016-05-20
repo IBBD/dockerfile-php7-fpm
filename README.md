@@ -22,14 +22,15 @@
 ## PHP扩展 
 
 - zip
-- iconv 
 - mcrypt
-- tokenizer 
-- mbstring 
-- mysql相关：mysqli, pdo, pdo_mysql
-- redis
+- mysql相关：mysqli, pdo
 - mongodb
 - msgpack 
+
+说明：
+
+- pdo, tokenizer, iconv, mbstring都已经包含在基础镜像`php:7.0.6-fpm`中
+- redis扩展暂不支持php7, 在laravel中可以使用`"predis/predis": "~1.0.1"`
 
 附加安装
 

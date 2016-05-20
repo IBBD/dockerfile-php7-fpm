@@ -42,10 +42,10 @@ RUN \
     #&& echo "extension=memcache.so" > /usr/local/etc/php/conf.d/memcache.ini \
     #&& pecl install imagick-beta \
     #&& echo "extension=imagick.so" > /usr/local/etc/php/conf.d/imagick.ini \
+    #&& pecl install redis \
+    #&& echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini \
 RUN  \
-    docker-php-ext-install iconv mcrypt pdo pdo_mysql tokenizer mbstring zip mysqli \
-    && pecl install redis \
-    && echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini \
+    docker-php-ext-install mcrypt zip mysqli \
     && pecl install msgpack-beta \
     && echo "extension=msgpack.so" > /usr/local/etc/php/conf.d/msgpack.ini \
     && pecl install mongodb \
