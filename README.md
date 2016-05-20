@@ -1,5 +1,6 @@
 # PHP7 FPM 镜像 For Laravel and Lumen
 
+
 ## 更新记录
 
 2016.05.20
@@ -18,7 +19,6 @@
 
 ## PHP扩展 
 
-- gd
 - zip
 - iconv 
 - mcrypt
@@ -28,8 +28,6 @@
 - redis
 - mongodb
 - msgpack 
-- imagick
-- memcache
 
 附加安装
 
