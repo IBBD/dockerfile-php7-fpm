@@ -1,5 +1,7 @@
 # PHP7 FPM 镜像 For Laravel and Lumen
 
+该镜像主要使用于接口服务。
+
 
 ## 更新记录
 
@@ -49,7 +51,7 @@ code_path=/var/www
 logs_path=/var/log/php
 
 current_path=$(pwd)
-docker run --name=ibbd-php-fpm -d \
+docker run --name=ibbd-php7-fpm -d \
     -p 9000:9000 \
     -v $code_path:/var/www \
     -v $logs_path:/var/log/php \

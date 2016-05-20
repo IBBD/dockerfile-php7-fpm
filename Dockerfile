@@ -1,6 +1,6 @@
 #
 # PHP Dockerfile
-# 满足laravel5.1版本的基本要求
+# 满足lumen5.2版本的基本要求, 主要使用于接口服务器
 #
 # https://github.com/ibbd/dockerfile-php7-fpm
 #
@@ -34,6 +34,7 @@ RUN \
 
 # install php modules
 # pecl install php modules
+    #docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     #&& docker-php-ext-install gd \
     #&& pecl install mongo \
     #&& echo "extension=mongo.so" > /usr/local/etc/php/conf.d/mongo.ini \
@@ -41,8 +42,8 @@ RUN \
     #&& echo "extension=memcache.so" > /usr/local/etc/php/conf.d/memcache.ini \
     #&& pecl install imagick-beta \
     #&& echo "extension=imagick.so" > /usr/local/etc/php/conf.d/imagick.ini \
-RUN  docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-    && docker-php-ext-install iconv mcrypt pdo pdo_mysql tokenizer mbstring zip mysqli \
+RUN  \
+    docker-php-ext-install iconv mcrypt pdo pdo_mysql tokenizer mbstring zip mysqli \
     && pecl install redis \
     && echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini \
     && pecl install msgpack-beta \
