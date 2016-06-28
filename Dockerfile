@@ -8,7 +8,7 @@
 #
 
 # Pull base image.
-FROM php:7.0.6-fpm
+FROM php:7.0.8-fpm
 
 MAINTAINER Alex Cai "cyy0523xc@gmail.com"
 
@@ -42,14 +42,14 @@ RUN \
     #&& echo "extension=memcache.so" > /usr/local/etc/php/conf.d/memcache.ini \
     #&& pecl install imagick-beta \
     #&& echo "extension=imagick.so" > /usr/local/etc/php/conf.d/imagick.ini \
-    #&& pecl install redis \
-    #&& echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini \
 RUN  \
     docker-php-ext-install mcrypt zip mysqli \
     && pecl install msgpack-beta \
     && echo "extension=msgpack.so" > /usr/local/etc/php/conf.d/msgpack.ini \
     && pecl install mongodb \
     && echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongodb.ini \
+    && pecl install redis \
+    && echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini \
     && pecl clear-cache
 
 # composer 
