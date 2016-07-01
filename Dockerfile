@@ -1,6 +1,6 @@
 #
 # PHP Dockerfile
-# 满足lumen5.2版本的基本要求, 主要使用于接口服务器
+# 满足lumen5.1版本的基本要求, 主要使用于接口服务器
 #
 # https://github.com/ibbd/dockerfile-php7-fpm
 #
@@ -44,7 +44,7 @@ RUN \
     #&& pecl install imagick-beta \
     #&& echo "extension=imagick.so" > /usr/local/etc/php/conf.d/imagick.ini \
 RUN  \
-    docker-php-ext-install mcrypt zip mysqli \
+    docker-php-ext-install mcrypt pdo_mysql zip mysqli \
     && pecl install msgpack-beta \
     && echo "extension=msgpack.so" > /usr/local/etc/php/conf.d/msgpack.ini \
     && pecl install mongodb \
