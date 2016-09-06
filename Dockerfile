@@ -43,9 +43,9 @@ RUN \
     #&& echo "extension=memcache.so" > /usr/local/etc/php/conf.d/memcache.ini \
     #&& pecl install imagick-beta \
     #&& echo "extension=imagick.so" > /usr/local/etc/php/conf.d/imagick.ini \
-    #docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
 RUN  \
-    docker-php-ext-install gd \
+    docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-webp-dir=/usr/include/ \
+    && docker-php-ext-install gd \
     && docker-php-ext-install mcrypt pdo_mysql zip mysqli \
     && pecl install msgpack-beta \
     && echo "extension=msgpack.so" > /usr/local/etc/php/conf.d/msgpack.ini \
