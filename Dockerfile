@@ -15,15 +15,15 @@ MAINTAINER Alex Cai "cyy0523xc@gmail.com"
 # Install modules
 # composer需要先安装zip
 # pecl install imagick时需要libmagickwand-dev。但是这个安装的东西有点多，python2.7也安装了
-        #libfreetype6-dev \
-        #libjpeg62-turbo-dev \
-        #libpng12-dev \
         #libmagickwand-dev \
 RUN \
     apt-get update \
     && apt-get install -y --no-install-recommends \
         libmcrypt-dev \
         libssl-dev \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libpng12-dev \
     && apt-get autoremove \
     && apt-get clean \
     && rm -r /var/lib/apt/lists/*
