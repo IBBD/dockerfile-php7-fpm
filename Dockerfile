@@ -44,7 +44,9 @@ RUN \
     #&& pecl install imagick-beta \
     #&& echo "extension=imagick.so" > /usr/local/etc/php/conf.d/imagick.ini \
 RUN  \
-    docker-php-ext-install mcrypt pdo_mysql zip mysqli \
+    docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-install gd \
+    && docker-php-ext-install mcrypt pdo_mysql zip mysqli \
     && pecl install msgpack-beta \
     && echo "extension=msgpack.so" > /usr/local/etc/php/conf.d/msgpack.ini \
     && pecl install mongodb \
