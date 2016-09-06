@@ -24,7 +24,7 @@
 
 ## 基础说明
 
-该镜像主要为满足 `laravel5` 框架而制作，并附加了 `redis`, `mongo`, `msgpack`, `imagick`等扩展。
+该镜像主要为满足 `laravel5` 框架而制作，并附加了 `redis`, `mongo`, `msgpack`, `gd`等扩展。
 
 说明：
 
@@ -39,11 +39,12 @@
 - mysql相关：mysqli, pdo
 - mongodb
 - msgpack 
+- gd
+- redis
 
 说明：
 
-- pdo, tokenizer, iconv, mbstring都已经包含在基础镜像`php:7.0.6-fpm`中
-- redis扩展暂不支持php7, 在laravel中可以使用`"predis/predis": "~1.0.1"`
+- pdo, tokenizer, iconv, mbstring都已经包含在基础镜像`php:7-fpm`中
 
 附加安装
 
