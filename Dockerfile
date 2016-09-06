@@ -14,6 +14,7 @@ MAINTAINER Alex Cai "cyy0523xc@gmail.com"
 
 # Install modules
 # composer需要先安装zip
+# 安装GD库: libfreetype6-dev, libjpeg62-turbo-dev, libpng12-dev 
 # pecl install imagick时需要libmagickwand-dev。但是这个安装的东西有点多，python2.7也安装了
         #libmagickwand-dev \
 RUN \
