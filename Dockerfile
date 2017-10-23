@@ -8,7 +8,7 @@
 #
 
 # Pull base image.
-FROM php:7.1.7-fpm
+FROM php:7.1.10-fpm
 
 MAINTAINER Alex Cai "cyy0523xc@gmail.com"
 
@@ -27,7 +27,8 @@ RUN \
         libpng12-dev \
     && apt-get autoremove \
     && apt-get clean \
-    && rm -r /var/lib/apt/lists/*
+    && rm -r /var/lib/apt/lists/* \
+    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 
 #COPY ext/msgpack.tgz  /msgpack.tgz 
@@ -44,11 +45,12 @@ RUN \
     #&& echo "extension=memcache.so" > /usr/local/etc/php/conf.d/memcache.ini \
     #&& pecl install imagick-beta \
     #&& echo "extension=imagick.so" > /usr/local/etc/php/conf.d/imagick.ini \
+    #&& pecl install msgpack-beta \
 RUN  \
     docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/ \
     && docker-php-ext-install gd \
     && docker-php-ext-install mcrypt pdo_mysql zip mysqli \
-    && pecl install msgpack-beta \
+    && pecl install msgpack \
     && echo "extension=msgpack.so" > /usr/local/etc/php/conf.d/msgpack.ini \
     && pecl install mongodb \
     && echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongodb.ini \
